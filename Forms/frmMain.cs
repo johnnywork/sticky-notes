@@ -1,4 +1,5 @@
-﻿using StickyNotes.Models;
+﻿using StickyNotes.Forms;
+using StickyNotes.Models;
 using StickyNotes.Services;
 using StickyNotes.Utils;
 using System;
@@ -73,6 +74,8 @@ namespace StickyNotes
             ntfMain.Visible = true;
 
             showLastActiveNotes();
+
+            showLastActiveNotesInTabControl();
         }
 
         private void ntfMain_DoubleClick(object sender, EventArgs e)
@@ -276,5 +279,23 @@ namespace StickyNotes
             }
 
         }
+
+        private void showLastActiveNotesInTabControl()
+        {
+            frmStickyTab frmTabs = new frmStickyTab();
+            Note[] allNotes = noteService.retrieveNotes();
+            foreach (Note note in allNotes)
+            {
+                NoteMetadata noteMetadata = noteService.retrieveNoteMetadata(note);
+                if (noteMetadata != null && noteMetadata.IsVisible)
+                {
+                    frmTabs.loadNote(note);
+                }
+            }
+
+            frmTabs.Show();
+            frmTabs.Activate();
+        }
+
     }
 }
