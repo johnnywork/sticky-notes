@@ -73,7 +73,7 @@ namespace StickyNotes
             ntfMain.Text = "Stiky notes - " + this.WorkingFolder;
             ntfMain.Visible = true;
 
-            showLastActiveNotes();
+            //showLastActiveNotes();
 
             showLastActiveNotesInTabControl();
         }
@@ -283,6 +283,10 @@ namespace StickyNotes
         private void showLastActiveNotesInTabControl()
         {
             frmStickyTab frmTabs = new frmStickyTab();
+            frmTabs.WindowState = FormWindowState.Maximized;
+
+            frmTabs.NoteService = noteService;
+
             Note[] allNotes = noteService.retrieveNotes();
             foreach (Note note in allNotes)
             {

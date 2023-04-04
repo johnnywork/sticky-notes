@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.Devices;
+using StickyNotes.Forms;
 using StickyNotes.Models;
 using StickyNotes.Services;
 using System;
@@ -16,13 +17,10 @@ namespace StickyNotes
 {
     public partial class frmStickNoteAdvanced : Form
     {
-        private static Color REGULAR_BACKCOLOR = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-        private static Color ARCHIVED_BACKCOLOR = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-        private static String LIVE_SEPARATOR = "-------------------------------------";
 
-        public StickyNotes.Models.Note Note { get; set; }
+        public Note Note { get; set; }
         public NoteMetadata NoteMetadataOnLoad { get; set; }
-        public StickyNotes.Services.NoteService NoteService { get; set; }
+        public NoteService NoteService { get; set; }
 
         public NoteFormsHandler FormsHandler { get; set; }
 
@@ -155,15 +153,15 @@ namespace StickyNotes
         {
             if (this.Note.IsArchived)
             {
-                this.BackColor = ARCHIVED_BACKCOLOR;
-                this.txtNoteBody.BackColor = ARCHIVED_BACKCOLOR;
-                this.pnlActions.BackColor = ARCHIVED_BACKCOLOR;
+                this.BackColor = UIStatics.ARCHIVED_BACKCOLOR;
+                this.txtNoteBody.BackColor = UIStatics.ARCHIVED_BACKCOLOR;
+                this.pnlActions.BackColor = UIStatics.ARCHIVED_BACKCOLOR;
             }
             else
             {
-                this.BackColor = REGULAR_BACKCOLOR;
-                this.txtNoteBody.BackColor = REGULAR_BACKCOLOR;
-                this.pnlActions.BackColor = REGULAR_BACKCOLOR;
+                this.BackColor = UIStatics.REGULAR_BACKCOLOR;
+                this.txtNoteBody.BackColor = UIStatics.REGULAR_BACKCOLOR;
+                this.pnlActions.BackColor = UIStatics.REGULAR_BACKCOLOR;
             }
 
             if (this.Note.NoteBodyRich != null)

@@ -35,9 +35,9 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 389);
+            this.panel1.Location = new System.Drawing.Point(0, 435);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 61);
+            this.panel1.Size = new System.Drawing.Size(800, 15);
             this.panel1.TabIndex = 0;
             // 
             // tcNotes
@@ -46,7 +46,7 @@
             this.tcNotes.Location = new System.Drawing.Point(0, 0);
             this.tcNotes.Name = "tcNotes";
             this.tcNotes.SelectedIndex = 0;
-            this.tcNotes.Size = new System.Drawing.Size(800, 389);
+            this.tcNotes.Size = new System.Drawing.Size(800, 435);
             this.tcNotes.TabIndex = 1;
             // 
             // frmStickyTab
